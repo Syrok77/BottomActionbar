@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="@dimen/action_button_size"
+    android:layout_height="@dimen/action_button_size"
+    tools:background="@android:color/holo_blue_bright">
+
+    <ImageView
+        android:id="@+id/bottom_action_button_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:contentDescription="@string/action_button"
+        tools:src="@android:drawable/sym_action_call"/>
+
+    <TextView
+        android:id="@+id/bottom_action_button_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="8sp"
+        tools:text="Search"/>
+
+</LinearLayout>
