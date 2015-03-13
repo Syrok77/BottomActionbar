@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import com.paragonfervour.syrok.bottomtoolbar.activity.BottomActionBarActivity;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends BottomActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

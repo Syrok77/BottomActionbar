@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.paragonfervour.syrok.bottomtoolbar.R;
@@ -25,7 +26,10 @@ public class BottomActionBar extends LinearLayout {
     private static final String TAG = BottomActionBar.class.getSimpleName();
 
     private OnMenuItemClickListener mItemClickListener;
+    private Menu mMenu;
+    private ViewGroup mActionButtonLayout;
 
+    // region constructors
     public BottomActionBar(Context context) {
         super(context);
         init();
@@ -42,17 +46,57 @@ public class BottomActionBar extends LinearLayout {
     }
 
     private void init() {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.bottom_actionbar_main, this, false);
+        ViewGroup view = (ViewGroup)LayoutInflater.from(getContext()).inflate(R.layout.bottom_actionbar_main, this, false);
         this.addView(view);
     }
+
+    // endregion
 
     public void setOnMenuItemClickListener(OnMenuItemClickListener listener) {
         mItemClickListener = listener;
     }
 
-    public void inflateMenu(int menuResId) {
-        // todo: figure out how to use a custom Menu.
-//        MenuInflater inflater = new MenuInflater(getContext());
+    public void setMenu(Menu menu) {
+        mMenu = menu;
+        buildActionButtons();
     }
 
+    // region local methods
+
+    public void inflateMenu(int menuResId) {
+        MenuInflater inflater = new MenuInflater(getContext());
+        inflater.inflate(menuResId, mMenu);
+        buildActionButtons();
+    }
+
+    private void buildActionButtons() {
+        if (mMenu == null) {
+            return;
+        }
+        for (int i = 0; i < mMenu.size(); i++) {
+            BottomActionButton button = new BottomActionButton(getContext());
+            // layout params
+            float width = getContext().getResources().getDimension(R.dimen.action_button_size);
+            LinearLayout.LayoutParams params = new LayoutParams((int)width, (int)width);
+            button.setLayoutParams(params);
+
+            button.setOnClickListener(new MenuItemClickListener(mMenu.getItem(i)));
+            mActionButtonLayout.addView(button);
+        }
+    }
+
+    // endregion
+
+    private class MenuItemClickListener implements OnClickListener {
+        private MenuItem mItem;
+        public MenuItemClickListener(MenuItem item) {
+            mItem = item;
+        }
+        @Override
+        public void onClick(View v) {
+            if(mItemClickListener != null) {
+                mItemClickListener.onMenuItemClick(mItem);
+            }
+        }
+    }
 }

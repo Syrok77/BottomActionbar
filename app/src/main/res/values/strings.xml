@@ -8,4 +8,6 @@
 
     <string name="action_button">Action Button</string>
 
+    <!-- Descriptions -->
+    <string name="description_more_button">See more</string>
 </resources>

@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="@dimen/action_button_size"
-    android:layout_height="@dimen/action_button_size"
-    tools:background="@android:color/holo_blue_bright">
+    android:layout_height="@dimen/action_button_size">
 
     <ImageView
         android:id="@+id/bottom_action_button_icon"
