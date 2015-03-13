@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:background="@android:color/holo_green_dark"
+    android:background="#11CCDD"
     android:layout_width="match_parent"
     android:layout_height="?android:actionBarSize"
     android:paddingLeft="16dp"
@@ -11,36 +11,22 @@
     tools:layout_gravity="bottom">
 
     <LinearLayout
+        android:id="@+id/bab_layout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_centerInParent="true">
 
-        <com.paragonfervour.syrok.bottomtoolbar.view.BottomActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="@dimen/action_button_padding"
-            android:layout_marginLeft="@dimen/action_button_padding"
-            />
-        <com.paragonfervour.syrok.bottomtoolbar.view.BottomActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="@dimen/action_button_padding"
-            android:layout_marginLeft="@dimen/action_button_padding"
-            />
-
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/bottom_actionbar_more_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:contentDescription="@string/description_more_button"
-        />
+    <!--<ImageView-->
+        <!--android:id="@+id/bottom_actionbar_more_button"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:contentDescription="@string/description_more_button"-->
+        <!--/>-->
 
     <!--android:src="@drawable/button_bar_more"-->
 

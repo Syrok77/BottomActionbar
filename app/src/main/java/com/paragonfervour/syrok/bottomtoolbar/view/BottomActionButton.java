@@ -2,8 +2,8 @@ package com.paragonfervour.syrok.bottomtoolbar.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.StringRes;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -39,17 +39,20 @@ public class BottomActionButton extends LinearLayout {
     }
 
     private void init() {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.actionbar_action_button, this, false);
+        View view = inflate(getContext(), R.layout.actionbar_action_button, this);
         mActionLabel = (TextView)view.findViewById(R.id.bottom_action_button_title);
         mActionIcon = (ImageView)view.findViewById(R.id.bottom_action_button_icon);
-        addView(view);
+    }
+
+    public void setActionTitle(CharSequence title) {
+        mActionLabel.setText(title);
     }
 
     public void setActionTitle(String title) {
         mActionLabel.setText(title);
     }
 
-    public void setActionTitle(int titleRes) {
+    public void setActionTitle(@StringRes int titleRes) {
         mActionLabel.setText(titleRes);
     }
 

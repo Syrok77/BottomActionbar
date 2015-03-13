@@ -5,6 +5,7 @@
 
 
     <com.paragonfervour.syrok.bottomtoolbar.view.BottomActionBar
+        android:id="@+id/main_bottom_actionbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_gravity="bottom"/>

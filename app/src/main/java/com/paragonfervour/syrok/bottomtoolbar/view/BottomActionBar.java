@@ -2,13 +2,14 @@ package com.paragonfervour.syrok.bottomtoolbar.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.paragonfervour.syrok.bottomtoolbar.R;
 
@@ -46,8 +47,8 @@ public class BottomActionBar extends LinearLayout {
     }
 
     private void init() {
-        ViewGroup view = (ViewGroup)LayoutInflater.from(getContext()).inflate(R.layout.bottom_actionbar_main, this, false);
-        this.addView(view);
+        View view = inflate(getContext(), R.layout.bottom_actionbar_main, this);
+        mActionButtonLayout = (ViewGroup)view.findViewById(R.id.bab_layout);
     }
 
     // endregion
@@ -76,16 +77,34 @@ public class BottomActionBar extends LinearLayout {
         for (int i = 0; i < mMenu.size(); i++) {
             BottomActionButton button = new BottomActionButton(getContext());
             // layout params
-            float width = getContext().getResources().getDimension(R.dimen.action_button_size);
-            LinearLayout.LayoutParams params = new LayoutParams((int)width, (int)width);
+            int padding = (int)getContext().getResources().getDimension(R.dimen.action_button_padding);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.setMargins(padding, 0, padding, 0);
+            params.gravity = Gravity.CENTER_VERTICAL;
             button.setLayoutParams(params);
 
-            button.setOnClickListener(new MenuItemClickListener(mMenu.getItem(i)));
+            MenuItem item = mMenu.getItem(i);
+            button.setOnClickListener(new MenuItemClickListener(item));
+            button.setOnLongClickListener(new MenuItemLongClickListener(item));
+            button.setActionIcon(item.getIcon());
+            button.setActionTitle(item.getTitle());
             mActionButtonLayout.addView(button);
         }
     }
 
     // endregion
+
+    private class MenuItemLongClickListener implements OnLongClickListener {
+        private MenuItem mItem;
+        public MenuItemLongClickListener(MenuItem item) {
+            mItem = item;
+        }
+        @Override
+        public boolean onLongClick(View v) {
+            Toast.makeText(v.getContext(), mItem.getTitle(), Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
 
     private class MenuItemClickListener implements OnClickListener {
         private MenuItem mItem;
