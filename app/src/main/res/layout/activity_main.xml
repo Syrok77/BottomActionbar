@@ -4,7 +4,7 @@
     tools:context=".MainActivity" tools:ignore="MergeRootFrame">
 
 
-    <com.paragonfervour.syrok.bottomtoolbar.view.BottomActionBar
+    <com.paragonfervour.bottombar.view.BottomActionBar
         android:id="@+id/main_bottom_actionbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"

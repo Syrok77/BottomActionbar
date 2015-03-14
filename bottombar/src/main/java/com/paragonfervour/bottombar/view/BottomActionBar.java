@@ -1,4 +1,4 @@
-package com.paragonfervour.syrok.bottomtoolbar.view;
+package com.paragonfervour.bottombar.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -11,8 +11,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.paragonfervour.syrok.bottomtoolbar.R;
+import com.paragonfervour.bottombar.R;
 
+// todo: consolidate naming. Probably go with "Bottom Bar" everywhere.
 /**
  * Action bar that sits on the bottom of the screen and expands up to show details.
  * * Expanded action bar contains extra actions and labels below actionbutton icons.
@@ -83,6 +84,7 @@ public class BottomActionBar extends LinearLayout {
             params.gravity = Gravity.CENTER_VERTICAL;
             button.setLayoutParams(params);
 
+            // todo: obey action display values (i.e. ifRoom|Always).
             MenuItem item = mMenu.getItem(i);
             button.setOnClickListener(new MenuItemClickListener(item));
             button.setOnLongClickListener(new MenuItemLongClickListener(item));

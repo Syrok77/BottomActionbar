@@ -1,4 +1,4 @@
-package com.paragonfervour.syrok.bottomtoolbar.view;
+package com.paragonfervour.bottombar.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.paragonfervour.syrok.bottomtoolbar.R;
+import com.paragonfervour.bottombar.R;
 
 /**
  * An ActionButton much like the standard Actionbar action buttons. Contains an icon

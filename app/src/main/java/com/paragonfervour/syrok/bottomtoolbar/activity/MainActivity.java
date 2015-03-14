@@ -1,12 +1,12 @@
-package com.paragonfervour.syrok.bottomtoolbar;
+package com.paragonfervour.syrok.bottomtoolbar.activity;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.paragonfervour.syrok.bottomtoolbar.activity.BottomActionBarActivity;
-import com.paragonfervour.syrok.bottomtoolbar.activity.MainFragment;
-import com.paragonfervour.syrok.bottomtoolbar.view.BottomActionBar;
+import com.paragonfervour.bottombar.view.BottomActionBar;
+import com.paragonfervour.bottombar.view.activity.BottomActionBarActivity;
+import com.paragonfervour.syrok.bottomtoolbar.R;
 
 import roboguice.inject.InjectView;
 
