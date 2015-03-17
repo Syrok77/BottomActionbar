@@ -48,8 +48,10 @@ public class BottomActionBar extends LinearLayout {
     }
 
     private void init() {
-        View view = inflate(getContext(), R.layout.bottom_actionbar_main, this);
-        mActionButtonLayout = (ViewGroup)view.findViewById(R.id.bab_layout);
+        if (!isInEditMode()) {
+            View view = inflate(getContext(), R.layout.bottom_actionbar_main, this);
+            mActionButtonLayout = (ViewGroup) view.findViewById(R.id.bab_layout);
+        }
     }
 
     // endregion
